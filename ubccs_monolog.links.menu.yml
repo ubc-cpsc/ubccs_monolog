@@ -1,0 +1,6 @@
+ubccs_monolog.settings:
+  title: Monolog Settings
+  description: Configuration for ubccs_monolog
+  parent: system.admin_config_system
+  route_name: ubccs_monolog.settings
+  weight: 10

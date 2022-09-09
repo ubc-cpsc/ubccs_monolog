@@ -1,0 +1,7 @@
+ubccs_monolog.settings:
+  path: '/admin/config/system/notification-settings'
+  defaults:
+    _title: 'Settings'
+    _form: 'Drupal\ubccs_monolog\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

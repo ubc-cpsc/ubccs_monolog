@@ -1,0 +1,43 @@
+<?php
+
+use Drupal\Component\Utility\Unicode;
+use Drupal\Core\Render\Markup;
+use Monolog\Formatter\LineFormatter;
+
+/**
+ * Implements hook_mail_alter().
+ */
+function ubccs_monolog_mail_alter(&$message) {
+  if ($message['id'] == 'monolog_default') {
+
+    $params = $message['params'];
+    $records = $params['records'];
+
+    $subjectFormatter = new LineFormatter('%message%');
+    $line = $subjectFormatter->format(_ubccs_monolog_highest_record($records));
+    $subject = '[' . \Drupal::config('system.site')->get('name') . '] ';
+    $subject .= Unicode::truncate(strip_tags($line), 78, TRUE, TRUE);
+
+    $message['subject'] = $subject;
+
+    $message['body'] = array_map(function ($text) {
+      return Markup::create($text);
+    }, $message['body']);
+  }
+}
+
+/**
+ * @param $records
+ *
+ * @return array
+ */
+function _ubccs_monolog_highest_record ($records): array {
+  $highestRecord = null;
+  foreach ($records as $record) {
+    if ($highestRecord === null || $highestRecord['level'] < $record['level']) {
+      $highestRecord = $record;
+    }
+  }
+
+  return $highestRecord;
+}

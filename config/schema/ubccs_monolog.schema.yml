@@ -1,0 +1,8 @@
+# Schema for the configuration files of the UBC CS Monolog module.
+ubccs_monolog.settings:
+  type: config_object
+  label: 'UBC CS Monolog settings'
+  mapping:
+    notification_email:
+      type: string
+      label: 'Example'

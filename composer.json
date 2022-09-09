@@ -1,0 +1,14 @@
+{
+  "name": "ubc-cpsc/ubccs_monolog",
+  "description": "An integration module for Monolog.",
+  "type": "drupal-module",
+  "keywords": [
+    "Drupal",
+    "Monolog"
+  ],
+  "homepage": "https://github.com/ubc-cpsc/ubccs_monolog",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "drupal/monolog": "^2.0"
+  }
+}

@@ -1,0 +1,7 @@
+name: UBC CS Monolog
+type: module
+description: Provides additional functionality for the site.
+package: UBC CS
+core_version_requirement: ^9 || ^10
+dependencies:
+  - monolog:monolog

@@ -1,0 +1,13 @@
+parameters:
+  monolog.channel_handlers:
+    php: ['drupal.dblog', 'php_mail']
+    default: ['drupal.dblog', 'mail']
+
+services:
+  monolog.handler.mail:
+    class: Drupal\ubccs_monolog\Logger\Handler\DrupalMailHandler
+    arguments: [ '@config.factory', '%monolog.level.error%' ]
+  monolog.handler.php_mail:
+    class: Drupal\ubccs_monolog\Logger\Handler\DrupalMailHandler
+    arguments: [ '@config.factory', '%monolog.level.notice%' ]
+
