@@ -1,6 +1,7 @@
 parameters:
   monolog.channel_handlers:
     php: ['drupal.dblog', 'php_mail']
+    form: ['drupal.dblog']
     default: ['drupal.dblog', 'mail']
 
 services:
