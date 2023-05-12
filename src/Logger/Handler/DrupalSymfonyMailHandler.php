@@ -10,6 +10,7 @@ use Drupal\symfony_mailer\EmailInterface;
 use Drupal\symfony_mailer\MailerInterface;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\MailHandler;
+use Monolog\Level;
 use Monolog\Logger;
 
 /**
@@ -29,7 +30,13 @@ class DrupalSymfonyMailHandler extends MailHandler {
    */
   private string $to;
 
-  public function __construct(MailerInterface $mailer, EmailFactoryInterface $emailFactory, ConfigFactoryInterface $config_factory, $level = Logger::ERROR, bool $bubble = true)  {
+  /**
+   * DrupalSymfonyMailHandler constructor.
+   *
+   * @param int|string|Level|LogLevel::* $level  The minimum logging level at which this handler will be triggered
+   * @param bool                                   $bubble Whether the messages that are handled can bubble up the stack or not
+   */
+  public function __construct(MailerInterface $mailer, EmailFactoryInterface $emailFactory, ConfigFactoryInterface $config_factory, $level, bool $bubble = true)  {
     parent::__construct($level, $bubble);
 
     $this->emailFactory = $emailFactory;

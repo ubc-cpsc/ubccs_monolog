@@ -15,14 +15,14 @@ class DrupalMailHandler extends MonologDrupalMailHandler {
    * DrupalMailHandler constructor.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
-   * @param int $level
+   * @param int|string|\Monolog\Level $level
    *   The minimum logging level at which this handler will be triggered.
    * @param bool $bubble
    *   The bubbling behavior.
    */
   public function __construct(
     ConfigFactoryInterface $config_factory,
-    $level = Logger::ERROR,
+    $level,
     bool $bubble = TRUE
   ) {
     $to = $config_factory->get('ubccs_monolog.settings')->get('notification_email') ??
