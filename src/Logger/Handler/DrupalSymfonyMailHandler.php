@@ -10,7 +10,6 @@ use Drupal\symfony_mailer\EmailInterface;
 use Drupal\symfony_mailer\MailerInterface;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\MailHandler;
-use Monolog\Level;
 use Monolog\Logger;
 
 /**
