@@ -10,7 +10,6 @@ use Drupal\symfony_mailer\EmailInterface;
 use Drupal\symfony_mailer\MailerInterface;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\MailHandler;
-use Monolog\Logger;
 
 /**
  * DrupalMailHandler uses the Drupal's core mail manager to send Log emails.
@@ -32,10 +31,12 @@ class DrupalSymfonyMailHandler extends MailHandler {
   /**
    * DrupalSymfonyMailHandler constructor.
    *
-   * @param int|string|Level|LogLevel::* $level  The minimum logging level at which this handler will be triggered
-   * @param bool                                   $bubble Whether the messages that are handled can bubble up the stack or not
+   * @param int|string|Level|LogLevel::* $level
+   *   The minimum logging level at which this handler will be triggered.
+   * @param bool $bubble
+   *   Whether the messages that are handled can bubble up the stack or not.
    */
-  public function __construct(MailerInterface $mailer, EmailFactoryInterface $emailFactory, ConfigFactoryInterface $config_factory, $level, bool $bubble = true)  {
+  public function __construct(MailerInterface $mailer, EmailFactoryInterface $emailFactory, ConfigFactoryInterface $config_factory, $level, bool $bubble = TRUE) {
     parent::__construct($level, $bubble);
 
     $this->emailFactory = $emailFactory;
@@ -52,10 +53,12 @@ class DrupalSymfonyMailHandler extends MailHandler {
   }
 
   /**
-   * Builds an instance of Email to be sent
+   * Builds an instance of Email to be sent.
    *
-   * @param  string        $content formatted email body to be sent
-   * @param  array         $records Log records that formed the content
+   * @param string $content
+   *   formatted email body to be sent.
+   * @param array $records
+   *   Log records that formed the content.
    */
   protected function buildMessage(string $content, array $records): EmailInterface {
     $message = $this->emailFactory->newTypedEmail('monolog', 'default');

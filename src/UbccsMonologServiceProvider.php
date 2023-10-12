@@ -6,6 +6,9 @@ use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\DependencyInjection\ServiceProviderBase;
 use Symfony\Component\DependencyInjection\Reference;
 
+/**
+ *
+ */
 class UbccsMonologServiceProvider extends ServiceProviderBase {
 
   /**
@@ -29,9 +32,9 @@ class UbccsMonologServiceProvider extends ServiceProviderBase {
     $args = $definition->getArguments();
     $definition->setClass('Drupal\ubccs_monolog\Logger\Handler\DrupalSymfonyMailHandler')
       ->setArguments(array_merge([
-          new Reference('symfony_mailer'),
-          new Reference('email_factory'),
-        ], $args));
+        new Reference('symfony_mailer'),
+        new Reference('email_factory'),
+      ], $args));
   }
 
 }

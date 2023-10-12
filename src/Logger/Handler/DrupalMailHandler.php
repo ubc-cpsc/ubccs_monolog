@@ -3,7 +3,6 @@
 namespace Drupal\ubccs_monolog\Logger\Handler;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Monolog\Logger;
 use Drupal\monolog\Logger\Handler\DrupalMailHandler as MonologDrupalMailHandler;
 
 /**

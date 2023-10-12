@@ -7,8 +7,7 @@ parameters:
 services:
   monolog.handler.mail:
     class: Drupal\ubccs_monolog\Logger\Handler\DrupalMailHandler
-    arguments: [ '@config.factory', 'error' ]
+    arguments: ['@config.factory', 'error']
   monolog.handler.php_mail:
     class: Drupal\ubccs_monolog\Logger\Handler\DrupalMailHandler
-    arguments: [ '@config.factory', 'notice' ]
-
+    arguments: ['@config.factory', 'notice']

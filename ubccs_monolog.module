@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Render\Markup;
 use Monolog\Formatter\LineFormatter;
@@ -31,9 +35,9 @@ function ubccs_monolog_mail_alter(&$message) {
  * Return the highest log record in a set.
  */
 function _ubccs_monolog_highest_record($records): array|LogRecord {
-  $highestRecord = null;
+  $highestRecord = NULL;
   foreach ($records as $record) {
-    if ($highestRecord === null || $highestRecord['level'] < $record['level']) {
+    if ($highestRecord === NULL || $highestRecord['level'] < $record['level']) {
       $highestRecord = $record;
     }
   }
