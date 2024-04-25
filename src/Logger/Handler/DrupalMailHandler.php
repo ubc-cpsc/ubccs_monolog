@@ -39,7 +39,7 @@ class DrupalMailHandler extends MonologDrupalMailHandler {
   /**
    * {@inheritdoc}
    */
-  public function write(LogRecord $record): void {
+  protected function write(LogRecord $record): void {
     // Do not send emails when it is a CLI request.
     if (!$this->conditionResolver->resolve()) {
       $this->send((string) $record->formatted, [$record]);
